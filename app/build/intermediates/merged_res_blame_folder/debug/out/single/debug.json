@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_icn_chevron_up.png.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\drawable-xxhdpi\\icn_chevron_up.png"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\drawable_rounded_edge.xml.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\drawable\\rounded_edge.xml"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_launcher.png.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\drawable-mdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\drawable_tfl2_logo.png.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\drawable\\tfl2_logo.png"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\layout_bottom_sheet_layout.xml.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\layout\\bottom_sheet_layout.xml"
+    },
+    {
+        "merged": "F:\\office\\pose_detection\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_ic_launcher.png.flat",
+        "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    }
+]

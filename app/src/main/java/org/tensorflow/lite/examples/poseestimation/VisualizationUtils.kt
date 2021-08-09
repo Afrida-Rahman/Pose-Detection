@@ -92,16 +92,21 @@ object VisualizationUtils {
         val startAngle1 = 180/Math.PI* atan2((pD.y-pE.y).toDouble(),(pD.x - pE.x).toDouble())
 
         val radius = 70F
+//      left
         val oval = RectF()
         oval.set(pB.x-radius, pB.y-radius,pB.x+radius, pB.y+radius)
-
+//      right
         val oval1 = RectF()
         oval1.set(pE.x-radius, pE.y-radius,pE.x+radius, pE.y+radius)
 
+//      left
         originalSizeCanvas.drawArc(oval, startAngle.toFloat(),-(desiredAngle.toFloat()),true,paintRectF)
+//      right
         originalSizeCanvas.drawArc(oval1, startAngle1.toFloat(),-(desiredAngle1.toFloat()),true,paintRectF)
 
+//      left
         originalSizeCanvas.drawText("$desiredAngle", pC.x-150,pC.y-20,paintText)
+//      right
         originalSizeCanvas.drawText("$desiredAngle1", pF.x+130,pF.y-20,paintText)
 
         return output

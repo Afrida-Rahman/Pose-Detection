@@ -1,0 +1,57 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="org.tensorflow.lite.examples.poseestimation"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.CAMERA" />
+11-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:5:5-65
+11-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:5:22-62
+12
+13    <uses-feature
+13-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:6:5-8:35
+14        android:name="android.hardware.camera"
+14-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:7:9-47
+15        android:required="true" />
+15-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:8:9-32
+16
+17    <application
+17-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:9:5-22:19
+18        android:allowBackup="true"
+18-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:10:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.5.0] C:\Users\HP\.gradle\caches\transforms-3\bc7e4e92123373c17955f303c12e35be\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+20        android:extractNativeLibs="false"
+21        android:icon="@drawable/ic_launcher"
+21-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:11:9-45
+22        android:label="@string/tfe_pe_app_name"
+22-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:12:9-48
+23        android:roundIcon="@drawable/ic_launcher"
+23-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:13:9-50
+24        android:supportsRtl="true"
+24-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:14:9-35
+25        android:theme="@style/Theme.PoseEstimation" >
+25-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:15:9-52
+26        <activity android:name="org.tensorflow.lite.examples.poseestimation.MainActivity" >
+26-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:16:9-21:20
+26-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:16:19-47
+27            <intent-filter>
+27-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:17:13-20:29
+28                <action android:name="android.intent.action.MAIN" />
+28-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:18:17-69
+28-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:18:25-66
+29
+30                <category android:name="android.intent.category.LAUNCHER" />
+30-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:19:17-77
+30-->F:\office\github_up\pose_estimation\android\app\src\main\AndroidManifest.xml:19:27-74
+31            </intent-filter>
+32        </activity>
+33    </application>
+34
+35</manifest>
