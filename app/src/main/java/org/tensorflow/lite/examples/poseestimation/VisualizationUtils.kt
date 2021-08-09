@@ -49,8 +49,8 @@ object VisualizationUtils {
         }
 
         val paintText = Paint().apply {
-            textSize = 24F
-            color = Color.RED
+            textSize = 30F
+            color = Color.WHITE
             style = Paint.Style.FILL
         }
         val output = input.copy(Bitmap.Config.ARGB_8888,true)
@@ -67,25 +67,43 @@ object VisualizationUtils {
             originalSizeCanvas.drawCircle(point.coordinate.x, point.coordinate.y, CIRCLE_RADIUS, paintCircle)
         }
 
-        val pA = person.keyPoints[6].coordinate
-        val pB = person.keyPoints[8].coordinate
-        val pC = person.keyPoints[10].coordinate
+//      Elbow, Shoulder, Hip (Left)
+        val pA = person.keyPoints[7].coordinate
+        val pB = person.keyPoints[5].coordinate
+        val pC = person.keyPoints[11].coordinate
+//      Elbow, Shoulder, Hip (Right)
+        val pD = person.keyPoints[8].coordinate
+        val pE = person.keyPoints[6].coordinate
+        val pF = person.keyPoints[12].coordinate
 
+//      left
         val aToB = sqrt((pB.x - pA.x).toDouble().pow(2.0) + (pB.y - pA.y).toDouble().pow(2.0))
         val bToC = sqrt((pB.x - pC.x).toDouble().pow(2.0) + (pB.y - pC.y).toDouble().pow(2.0))
         val cToA = sqrt((pC.x - pA.x).toDouble().pow(2.0) + (pC.y - pA.y).toDouble().pow(2.0))
-        val angle = round(acos((bToC*bToC+aToB*aToB-cToA*cToA)/(2*bToC*aToB)) *(180/Math.PI))
-        println("angle : ${angle}")
-        val startAngle = 180/Math.PI* atan2((pA.y-pB.y).toDouble(),(pA.x - pB.x).toDouble())
-//        val rectF = RectF(0F,0F, (pB.x*2).toFloat(), (pB.y*2).toFloat())
-//        val rectF = RectF(((pB.x/2)-radius).toFloat(),((pB.y/2)-radius).toFloat(), ((pB.x/2)+radius).toFloat(),
-//            ((pB.y/2)+radius).toFloat())
-        val radius = 50F
+//      right
+        val dToE = sqrt((pE.x - pD.x).toDouble().pow(2.0) + (pE.y - pD.y).toDouble().pow(2.0))
+        val eToF = sqrt((pE.x - pF.x).toDouble().pow(2.0) + (pE.y - pF.y).toDouble().pow(2.0))
+        val fToD = sqrt((pF.x - pD.x).toDouble().pow(2.0) + (pF.y - pD.y).toDouble().pow(2.0))
+//      left
+        val desiredAngle = round(acos((bToC*bToC+aToB*aToB-cToA*cToA)/(2*bToC*aToB)) *(180/Math.PI))
+        val startAngle = 180/Math.PI* atan2((pC.y-pB.y).toDouble(),(pC.x - pB.x).toDouble())
+//      right
+        val desiredAngle1 = round(acos((eToF*eToF+dToE*dToE-fToD*fToD)/(2*eToF*dToE)) *(180/Math.PI))
+        val startAngle1 = 180/Math.PI* atan2((pD.y-pE.y).toDouble(),(pD.x - pE.x).toDouble())
+
+        val radius = 70F
         val oval = RectF()
         oval.set(pB.x-radius, pB.y-radius,pB.x+radius, pB.y+radius)
 
-        originalSizeCanvas.drawArc(oval, startAngle.toFloat(),-(angle.toFloat()),true,paintRectF)
-        originalSizeCanvas.drawText("angle: $angle", 0F,50F,paintText)
+        val oval1 = RectF()
+        oval1.set(pE.x-radius, pE.y-radius,pE.x+radius, pE.y+radius)
+
+        originalSizeCanvas.drawArc(oval, startAngle.toFloat(),-(desiredAngle.toFloat()),true,paintRectF)
+        originalSizeCanvas.drawArc(oval1, startAngle1.toFloat(),-(desiredAngle1.toFloat()),true,paintRectF)
+
+        originalSizeCanvas.drawText("$desiredAngle", pC.x-150,pC.y-20,paintText)
+        originalSizeCanvas.drawText("$desiredAngle1", pF.x+130,pF.y-20,paintText)
+
         return output
     }
 }
