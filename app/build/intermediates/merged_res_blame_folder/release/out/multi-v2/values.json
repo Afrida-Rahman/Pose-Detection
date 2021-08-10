@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\office\\github_up\\pose_estimation\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
+            "outputFile": "F:\\office\\pose_detection\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
                     "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\b78e0b58f27a90819fdf21d1f947fe02\\transformed\\coordinatorlayout-1.1.0\\res\\values\\values.xml",
@@ -42,7 +42,43 @@
                     }
                 },
                 {
-                    "source": "F:\\office\\github_up\\pose_estimation\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\99caf459e39f0577631a901e4209c1f8\\transformed\\lifecycle-runtime-2.3.1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "42",
+                        "endOffsets": "93"
+                    },
+                    "to": {
+                        "startLines": "1008",
+                        "startColumns": "4",
+                        "startOffsets": "58312",
+                        "endColumns": "42",
+                        "endOffsets": "58350"
+                    }
+                },
+                {
+                    "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\values\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "102",
+                        "endLines": "16",
+                        "endColumns": "12",
+                        "endOffsets": "943"
+                    },
+                    "to": {
+                        "startLines": "3797",
+                        "startColumns": "4",
+                        "startOffsets": "251773",
+                        "endLines": "3811",
+                        "endColumns": "12",
+                        "endOffsets": "252598"
+                    }
+                },
+                {
+                    "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "14,8,1,2,6,4,3,5",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -58,40 +94,6 @@
                         "endLines": "6,11,1136,1137,1138,1139,1140,1141",
                         "endColumns": "19,19,63,87,53,51,55,56",
                         "endOffsets": "287,458,73447,73535,73589,73641,73697,73754"
-                    }
-                },
-                {
-                    "source": "F:\\office\\github_up\\pose_estimation\\android\\app\\src\\main\\res\\values\\colors.xml",
-                    "from": {
-                        "startLines": "6,2,3,4,5,7",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "245,57,105,153,199,288",
-                        "endColumns": "41,46,46,44,44,41",
-                        "endOffsets": "282,99,147,193,239,325"
-                    },
-                    "to": {
-                        "startLines": "412,500,501,512,513,516",
-                        "startColumns": "4,4,4,4,4,4",
-                        "startOffsets": "19795,25788,25835,26579,26624,26790",
-                        "endColumns": "41,46,46,44,44,41",
-                        "endOffsets": "19832,25830,25877,26619,26664,26827"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\99caf459e39f0577631a901e4209c1f8\\transformed\\lifecycle-runtime-2.3.1\\res\\values\\values.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "42",
-                        "endOffsets": "93"
-                    },
-                    "to": {
-                        "startLines": "1008",
-                        "startColumns": "4",
-                        "startOffsets": "58312",
-                        "endColumns": "42",
-                        "endOffsets": "58350"
                     }
                 },
                 {
@@ -150,25 +152,6 @@
                     }
                 },
                 {
-                    "source": "F:\\office\\github_up\\pose_estimation\\android\\app\\src\\main\\res\\values\\themes.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "102",
-                        "endLines": "16",
-                        "endColumns": "12",
-                        "endOffsets": "943"
-                    },
-                    "to": {
-                        "startLines": "3797",
-                        "startColumns": "4",
-                        "startOffsets": "251773",
-                        "endLines": "3811",
-                        "endColumns": "12",
-                        "endOffsets": "252598"
-                    }
-                },
-                {
                     "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\53c378b8ab50a0169d9b7c98563e9ca2\\transformed\\jetified-viewpager2-1.0.0\\res\\values\\values.xml",
                     "from": {
                         "startLines": "2",
@@ -204,6 +187,23 @@
                         "endLines": "323,661,662,663,671,672,673,955,7241",
                         "endColumns": "55,58,47,55,74,75,71,65,24",
                         "endOffsets": "15210,36413,36461,36517,37203,37279,37351,55681,468993"
+                    }
+                },
+                {
+                    "source": "F:\\office\\pose_detection\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "6,2,3,4,5,7",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "245,57,105,153,199,288",
+                        "endColumns": "41,46,46,44,44,41",
+                        "endOffsets": "282,99,147,193,239,325"
+                    },
+                    "to": {
+                        "startLines": "412,500,501,512,513,516",
+                        "startColumns": "4,4,4,4,4,4",
+                        "startOffsets": "19795,25788,25835,26579,26624,26790",
+                        "endColumns": "41,46,46,44,44,41",
+                        "endOffsets": "19832,25830,25877,26619,26664,26827"
                     }
                 },
                 {

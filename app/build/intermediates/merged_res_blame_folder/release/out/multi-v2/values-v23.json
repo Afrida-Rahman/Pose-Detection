@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\office\\github_up\\pose_estimation\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "F:\\office\\pose_detection\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
                     "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\85451ff2276109ecee3a790f2e1ac0f4\\transformed\\cardview-1.0.0\\res\\values-v23\\values-v23.xml",

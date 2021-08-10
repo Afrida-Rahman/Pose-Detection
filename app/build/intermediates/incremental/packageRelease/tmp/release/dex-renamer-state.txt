@@ -1,4 +1,4 @@
-#Sun Aug 08 13:39:25 BDT 2021
-base.0=F\:\\office\\github_up\\pose_estimation\\android\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
+#Mon Aug 09 20:10:50 BDT 2021
+base.0=F\:\\office\\pose_detection\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

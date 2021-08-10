@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\office\\github_up\\pose_estimation\\android\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-is\\values-is.xml",
+            "outputFile": "F:\\office\\pose_detection\\app\\build\\intermediates\\incremental\\mergeReleaseResources\\merged.dir\\values-is\\values-is.xml",
             "map": [
                 {
                     "source": "C:\\Users\\HP\\.gradle\\caches\\transforms-3\\bc7e4e92123373c17955f303c12e35be\\transformed\\core-1.5.0\\res\\values-is\\values-is.xml",
