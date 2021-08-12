@@ -9,7 +9,17 @@ import kotlin.math.*
 object VisualizationUtils {
     private const val CIRCLE_RADIUS = 5f
     private const val LINE_WIDTH = 4f
-
+    private const val angle1Min = 160
+    private const val angle1Max = 180
+    private const val angle2Min = 160
+    private const val angle2Max = 180
+    private const val angle3Min = 70
+    private const val angle3Max = 85
+    private const val angle4Min = 50
+    private const val angle4Max = 75
+    var currentIndex = 0
+    var countDown = 0
+    private const val totalStates = 3
     private val bodyJoints = listOf(
 //        Pair(BodyPart.NOSE, BodyPart.LEFT_EYE),
 //        Pair(BodyPart.NOSE, BodyPart.RIGHT_EYE),
@@ -22,11 +32,11 @@ object VisualizationUtils {
 //        Pair(BodyPart.RIGHT_SHOULDER, BodyPart.RIGHT_ELBOW),
 //        Pair(BodyPart.RIGHT_ELBOW, BodyPart.RIGHT_WRIST),
 //        Pair(BodyPart.LEFT_SHOULDER, BodyPart.RIGHT_SHOULDER),
-//        Pair(BodyPart.LEFT_SHOULDER, BodyPart.LEFT_HIP),
+        Pair(BodyPart.LEFT_SHOULDER, BodyPart.LEFT_HIP),
 //        Pair(BodyPart.RIGHT_SHOULDER, BodyPart.RIGHT_HIP),
 //        Pair(BodyPart.LEFT_HIP, BodyPart.RIGHT_HIP),
-//        Pair(BodyPart.LEFT_HIP, BodyPart.LEFT_KNEE),
-//        Pair(BodyPart.LEFT_KNEE, BodyPart.LEFT_ANKLE),
+        Pair(BodyPart.LEFT_HIP, BodyPart.LEFT_KNEE),
+        Pair(BodyPart.LEFT_KNEE, BodyPart.LEFT_ANKLE),
 //        Pair(BodyPart.RIGHT_HIP, BodyPart.RIGHT_KNEE),
 //        Pair(BodyPart.RIGHT_KNEE, BodyPart.RIGHT_ANKLE)
         Pair(BodyPart.LEFT_SHOULDER, BodyPart.LEFT_ANKLE)
@@ -45,16 +55,20 @@ object VisualizationUtils {
         }
         val paintRectF = Paint().apply {
             strokeWidth = LINE_WIDTH
-            color = Color.RED
+            color = Color.WHITE
             style = Paint.Style.STROKE
         }
-
         val paintText = Paint().apply {
             textSize = 30F
-            color = Color.WHITE
+            color = Color.RED
             style = Paint.Style.FILL
         }
-        val output = input.copy(Bitmap.Config.ARGB_8888,true)
+        val paintCountText = Paint().apply {
+            textSize = 80F
+            color = Color.BLACK
+            style = Paint.Style.FILL
+        }
+        val output = input.copy(Bitmap.Config.ARGB_8888, true)
         val originalSizeCanvas = Canvas(output)
 
         bodyJoints.forEach {
@@ -101,46 +115,83 @@ object VisualizationUtils {
         val kToL = sqrt((pK.x - pL.x).toDouble().pow(2.0) + (pK.y - pL.y).toDouble().pow(2.0))
         val lToJ = sqrt((pL.x - pJ.x).toDouble().pow(2.0) + (pL.y - pJ.y).toDouble().pow(2.0))
 //      left
-        val desiredAngle = round(acos((bToC*bToC+aToB*aToB-cToA*cToA)/(2*bToC*aToB)) *(180/Math.PI))
-        val startAngle = 180/Math.PI* atan2((pC.y-pB.y).toDouble(),(pC.x - pB.x).toDouble())
+        val desiredAngle =
+            round(acos((bToC * bToC + aToB * aToB - cToA * cToA) / (2 * bToC * aToB)) * (180 / Math.PI))
+        val startAngle = 180 / Math.PI * atan2((pC.y - pB.y).toDouble(), (pC.x - pB.x).toDouble())
 //      right
-        val desiredAngle1 = round(acos((eToF*eToF+dToE*dToE-fToD*fToD)/(2*eToF*dToE)) *(180/Math.PI))
-        val startAngle1 = 180/Math.PI* atan2((pD.y-pE.y).toDouble(),(pD.x - pE.x).toDouble())
+        val desiredAngle1 =
+            round(acos((eToF * eToF + dToE * dToE - fToD * fToD) / (2 * eToF * dToE)) * (180 / Math.PI))
+        val startAngle1 = 180 / Math.PI * atan2((pD.y - pE.y).toDouble(), (pD.x - pE.x).toDouble())
 //      Shoulder,hip,knee (left)
-        val desiredAngle2 = round(acos((hToI*hToI+gToH*gToH-iToG*iToG)/(2*hToI*gToH)) *(180/Math.PI))
-        val startAngle2 = 180/Math.PI* atan2((pG.y-pH.y).toDouble(),(pG.x - pH.x).toDouble())
+        val desiredAngle2 =
+            round(acos((hToI * hToI + gToH * gToH - iToG * iToG) / (2 * hToI * gToH)) * (180 / Math.PI))
+        val startAngle2 = 180 / Math.PI * atan2((pG.y - pH.y).toDouble(), (pG.x - pH.x).toDouble())
 //      hip,knee,ankle (left)
-        val desiredAngle3 = round(acos((kToL*kToL+jToK*jToK-lToJ*lToJ)/(2*kToL*jToK)) *(180/Math.PI))
-        val startAngle3 = 180/Math.PI* atan2((pL.y-pK.y).toDouble(),(pL.x - pK.x).toDouble())
+        val desiredAngle3 =
+            round(acos((kToL * kToL + jToK * jToK - lToJ * lToJ) / (2 * kToL * jToK)) * (180 / Math.PI))
+        val startAngle3 = 180 / Math.PI * atan2((pL.y - pK.y).toDouble(), (pL.x - pK.x).toDouble())
         val radius = 70F
 //      left
         val oval = RectF()
-        oval.set(pB.x-radius, pB.y-radius,pB.x+radius, pB.y+radius)
+        oval.set(pB.x - radius, pB.y - radius, pB.x + radius, pB.y + radius)
 //      right
         val oval1 = RectF()
-        oval1.set(pE.x-radius, pE.y-radius,pE.x+radius, pE.y+radius)
+        oval1.set(pE.x - radius, pE.y - radius, pE.x + radius, pE.y + radius)
 //      Shoulder,hip,knee (left)
         val oval2 = RectF()
-        oval2.set(pH.x-radius, pH.y-radius,pH.x+radius, pH.y+radius)
+        oval2.set(pH.x - radius, pH.y - radius, pH.x + radius, pH.y + radius)
 //      hip,knee,ankle (left)
         val oval3 = RectF()
-        oval3.set(pK.x-radius, pK.y-radius,pK.x+radius, pK.y+radius)
+        oval3.set(pK.x - radius, pK.y - radius, pK.x + radius, pK.y + radius)
 //      left
 //        originalSizeCanvas.drawArc(oval, startAngle.toFloat(),-(desiredAngle.toFloat()),true,paintRectF)
 //      right
 //        originalSizeCanvas.drawArc(oval1, startAngle1.toFloat(),-(desiredAngle1.toFloat()),true,paintRectF)
 //      Shoulder,hip,knee (left)
-        originalSizeCanvas.drawArc(oval2, startAngle2.toFloat(),-(desiredAngle2.toFloat()),true,paintRectF)
+        originalSizeCanvas.drawArc(
+            oval2,
+            startAngle2.toFloat(),
+            -(desiredAngle2.toFloat()),
+            true,
+            paintRectF
+        )
 //      hip,knee,ankle (left)
-        originalSizeCanvas.drawArc(oval3, startAngle3.toFloat(),-(desiredAngle3.toFloat()),true,paintRectF)
+        originalSizeCanvas.drawArc(
+            oval3,
+            startAngle3.toFloat(),
+            -(desiredAngle3.toFloat()),
+            true,
+            paintRectF
+        )
 
 //      left
 //        originalSizeCanvas.drawText("$desiredAngle", pC.x-150,pC.y-20,paintText)
 //      right
 //        originalSizeCanvas.drawText("$desiredAngle1", pF.x+130,pF.y-20,paintText)
-        originalSizeCanvas.drawText("$desiredAngle2", pH.x-150,pH.y-50,paintText)
-        originalSizeCanvas.drawText("$desiredAngle3", pK.x+150,pK.y+50,paintText)
+        originalSizeCanvas.drawText("$desiredAngle2", pH.x - 150, pH.y - 50, paintText)
+        originalSizeCanvas.drawText("$desiredAngle3", pK.x + 150, pK.y + 50, paintText)
+
+        val states: Array<FloatArray> = arrayOf(
+            floatArrayOf(angle1Min.toFloat(), angle1Max.toFloat(), angle2Min.toFloat(),angle2Max.toFloat()),
+            floatArrayOf(angle3Min.toFloat(), angle3Max.toFloat(), angle4Min.toFloat(),angle4Max.toFloat()),
+            floatArrayOf(angle1Min.toFloat(), angle1Max.toFloat(), angle2Min.toFloat(),angle2Max.toFloat())
+        )
+        if (desiredAngle2 > states[currentIndex][0] && desiredAngle2 < states[currentIndex][1] &&
+            desiredAngle3 > states[currentIndex][2] && desiredAngle3 < states[currentIndex][3]) {
+            currentIndex += 1
+            println("c : $currentIndex")
+            println("desired angle : $desiredAngle3")
+            if (currentIndex == totalStates) {
+                currentIndex = 0
+                countDown += 1
+                println("countDown : $countDown")
+            }
+        }
+        originalSizeCanvas.drawText("$countDown", 200F, 80F, paintCountText)
+
         return output
+        }
+
     }
-}
+
 

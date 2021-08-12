@@ -1,4 +1,4 @@
-#Mon Aug 09 20:10:50 BDT 2021
+#Wed Aug 11 17:48:49 BDT 2021
 base.0=F\:\\office\\pose_detection\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\classes.dex
 renamed.0=classes.dex
 path.0=classes.dex
